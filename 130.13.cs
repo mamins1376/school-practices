@@ -19,12 +19,10 @@ public class p130_13 : Form
   }
   private void InitializeComponent()
   {
-    // initialize form
     this.ClientSize = new Size(160, 180);
     this.FormBorderStyle = FormBorderStyle.FixedSingle;
     this.MaximizeBox = false;
     
-    // txtNumA
     txtNumA = new TextBox();
     txtNumA.Location = new Point(20, 20);
     txtNumA.Width = 120;
@@ -32,7 +30,6 @@ public class p130_13 : Form
     txtNumA.TextChanged += new EventHandler(this.Number_Entered);
     this.Controls.Add(txtNumA);
 
-    // txtNumB
     txtNumB = new TextBox();
     txtNumB.Location = new Point(20, 50);
     txtNumB.Width = 120;
@@ -40,7 +37,6 @@ public class p130_13 : Form
     txtNumB.TextChanged += new EventHandler(this.Number_Entered);
     this.Controls.Add(txtNumB);
 
-    // lblSum
     lblSum = new Label();
     lblSum.Location = new Point(20, 80);
     lblSum.Size = new Size(120, 30);
@@ -48,7 +44,6 @@ public class p130_13 : Form
     lblSum.Text = "Enter";
     this.Controls.Add(lblSum);
     
-    // lblDif
     lblDif = new Label();
     lblDif.Location = new Point(20, 110);
     lblDif.Size = new Size(120, 30);
@@ -56,7 +51,6 @@ public class p130_13 : Form
     lblDif.Text = "Your";
     this.Controls.Add(lblDif);
     
-    // lblMul
     lblMul = new Label();
     lblMul.Location = new Point(20, 140);
     lblMul.Size = new Size(120, 30);
@@ -66,19 +60,21 @@ public class p130_13 : Form
   }
   protected void Number_Entered(object sender, EventArgs args)
   {
+    decimal NumA, NumB;
     try
     {
-      decimal NumA = Convert.ToDecimal(txtNumA.Text);
-      decimal NumB = Convert.ToDecimal(txtNumB.Text);
-      lblSum.Text = "+: " + Convert.ToString(NumA + NumB);
-      lblDif.Text = "-: " + Convert.ToString(NumA - NumB);
-      lblMul.Text = "*: " + Convert.ToString(NumA * NumB);
+      NumA = Convert.ToDecimal(txtNumA.Text);
+      NumB = Convert.ToDecimal(txtNumB.Text);
     }
     catch
     {
       lblSum.Text = "Enter";
       lblDif.Text = "True";
       lblMul.Text = "Numbers!";
+      return;
     }
+    lblSum.Text = "+: " + Convert.ToString(NumA + NumB);
+    lblDif.Text = "-: " + Convert.ToString(NumA - NumB);
+    lblMul.Text = "*: " + Convert.ToString(NumA * NumB);
   }
 }
