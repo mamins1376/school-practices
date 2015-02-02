@@ -110,6 +110,7 @@ public class p130_12 : Form
     this.ClientSize = new Size(200, 450);
     this.FormBorderStyle = FormBorderStyle.FixedSingle;
     this.MaximizeBox = false;
+    this.Text = "130, 12 in C#";
   }
   
   private void btnAction_Click(object sender, EventArgs args)

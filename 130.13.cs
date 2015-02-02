@@ -19,10 +19,6 @@ public class p130_13 : Form
   }
   private void InitializeComponent()
   {
-    this.ClientSize = new Size(160, 180);
-    this.FormBorderStyle = FormBorderStyle.FixedSingle;
-    this.MaximizeBox = false;
-    
     txtNumA = new TextBox();
     txtNumA.Location = new Point(20, 20);
     txtNumA.Width = 120;
@@ -57,6 +53,11 @@ public class p130_13 : Form
     lblMul.TextAlign = ContentAlignment.MiddleCenter;
     lblMul.Text = "Numbers";
     this.Controls.Add(lblMul);
+    
+    this.ClientSize = new Size(160, 180);
+    this.FormBorderStyle = FormBorderStyle.FixedSingle;
+    this.MaximizeBox = false;
+    this.Text = "130, 13 in C#";
   }
   protected void Number_Entered(object sender, EventArgs args)
   {

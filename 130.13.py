@@ -31,7 +31,7 @@ class p130_13:
     self.lblMul.setAlignment(QtCore.Qt.AlignCenter)
     self.grdMain.addWidget(self.lblMul, 5, 0)
     
-    self.wgtMain.setWindowTitle(' ')
+    self.wgtMain.setWindowTitle('130, 13 in Python')
     self.grdMain.setSpacing(10)
     self.wgtMain.setLayout(self.grdMain)
     self.wgtMain.setFixedSize(160, 180)
