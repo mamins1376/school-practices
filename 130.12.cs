@@ -103,10 +103,20 @@ public class p130_12 : Form
     btnAction = new Button();
     btnAction.Location = new Point(10, 410);
     btnAction.Size = new Size(180, 30);
-    btnAction.Text = "Enter a number and press me";
+    btnAction.Text = "Enter numbers and press me";
     btnAction.Click += new EventHandler(this.btnAction_Click);
     this.Controls.Add(btnAction);
-        
+    
+    foreach ( Control control in this.Controls )
+    {
+      if ( control is NumericUpDown )
+      {
+        NumericUpDown nudTarget = (NumericUpDown)control;
+        nudTarget.Maximum = 100;
+        nudTarget.Minimum = -100;
+      }
+    }
+    
     this.ClientSize = new Size(200, 450);
     this.FormBorderStyle = FormBorderStyle.FixedSingle;
     this.MaximizeBox = false;
@@ -115,13 +125,34 @@ public class p130_12 : Form
   
   private void btnAction_Click(object sender, EventArgs args)
   {
-    foreach (Control control in this.Controls)
+    int Max = -1000;
+    int Min = 1000;
+    string MaxName = "";
+    string MinName = "";
+    
+    foreach ( Control control in this.Controls )
     {
-      if (control is NumericUpDown)
+      if ( control is NumericUpDown )
       {
-        Console.WriteLine(control.Text);
+        int Data = int.Parse(control.Text);
+        if ( Max < Data )
+        {
+          Max = Data;
+          int Index = this.Controls.IndexOf(control);
+          Control txtCity = this.Controls[Index - 1];
+          MaxName = txtCity.Text;
+        }
+        if ( Min > Data )
+        {
+          Min = Data;
+          int Index = this.Controls.IndexOf(control);
+          Control txtCity = this.Controls[Index - 1];
+          MinName = txtCity.Text;
+        }
       }
     }
+    MessageBox.Show("Maximum is " + MaxName + " with " + Max.ToString() + 
+                      ",\nMinimum is " + MinName + " with " + Min.ToString() + ".");
   }
   
   public p130_12()
